@@ -1,0 +1,3 @@
+[console_scripts]
+pcask1d = pcask1d.src.main:main
+
