@@ -4,58 +4,68 @@ import numpy as np
 Input to the calculation in the form of a parameters class
 """
 
+
 class parameters(object):
+
+    # Constructor function
     def __init__(self,*args,**kwargs):
 
         # Level of approximation used
         self.method = 'dft'
 
-        # SCF tolerences
-        self.tol_ks = 1e-10
-        self.tol_hf = 1e-10
-
         # Size of real space cell
         self.cell = 20
-        self.Nspace = 71
-        self.dx = self.cell / (self.Nspace - 1)
+        self.num_planewaves = 100 # Warning, must be even.
+        self.kpoint_spacing = 0.2
 
-        # Grid
-        self.grid = np.linspace(-0.5*self.cell, 0.5*self.cell, self.Nspace)
-
-        # Stencil order for del^2 operator
-        self.stencil = kwargs.pop('stencil',11)
-
-        # Copies of real space cell
-        self.supercell = 5
+        # Real space grid
+        self.grid = np.linspace(-0.5*self.cell, 0.5*self.cell, self.num_planewaves)
 
         # List of species + position
         self.species = ['Li']
         self.position = [0]
 
+        # Define each element with corresponding atomic number
+        self.element_charges = {'H': 1, 'He': 2, 'Li': 3, 'Be': 4, 'B': 5,
+                                'C': 6, 'N': 7, 'O': 8, 'F': 9, 'Ne': 10}
+
         # SCF
+        self.scf_tol = 1e-10
         self.history_length = 10
         self.step_length = 1
-
-        # Coulomb softening parameter
-        self.soft = 1
 
         # Have v_ext specified by atoms or given explicitly
         self.manual_v_ext = False
         self.v_ext = 0.5*(0.25**2)*self.grid**2
 
-        # Define each element with corresponding atomic number
-        self.element_charges = {'H': 1, 'He': 2, 'Li': 3, 'Be': 4, 'B': 5,
-                                'C': 6, 'N': 7, 'O': 8, 'F': 9, 'Ne': 10}
-
         # Number of atoms in the calculation
         self.num_atoms = len(self.species)
 
         # Number of `electrons'
-        num_particles = 0
+        self.num_particles = 0
         for i in range(0,len(self.species)):
-            num_particles += self.element_charges[self.species[i]]
+            self.num_particles += self.element_charges[self.species[i]]
 
-        self.num_particles = num_particles
-        self.num_electrons = num_particles
 
+    def get_kpoints(self):
+        # First BZ in 1D is: k \in [-pi/a, pi/a]. Generate k-points in this range, evenly spaced.
+
+        kpoints = np.linspace(-np.pi / self.cell, np.pi / self.cell, 1 / self.kpoint_spacing)
+
+        return kpoints
+
+    def get_planewave_frequencies(self):
+        # Generate the plane-wave frequencies whose real space periodicity fits inside our unit cell
+        # G = 2pi n / R
+
+        pw_frequencies = [(2*np.pi*n / self.cell) for n in
+                          range(-int(self.num_planewaves/2), int(self.num_planewaves/2))]
+
+        # Sort from lowest to highest frequency
+        pw_frequencies = sorted(pw_frequencies, key=abs)
+
+        # Remove zero freq PW for now...
+        pw_frequencies.pop(0)
+
+        return pw_frequencies
 

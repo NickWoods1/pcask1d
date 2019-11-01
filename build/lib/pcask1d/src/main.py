@@ -1,6 +1,8 @@
 import argparse
 import numpy as np
+import matplotlib.pyplot as plt
 from pcask1d.src.input import parameters
+from pcask1d.src.hamiltonian import hamiltonian
 
 """
 Entry point for the requested action
@@ -19,7 +21,7 @@ def main():
 
     # Specify arguments that the package can take
     parser.add_argument('--version', action='version', version='This is version {0} of cask1d.'.format(__version__))
-    parser.add_argument('task', help='what do you want cask1d to do: dft')
+    parser.add_argument('task', help='what do you want pcask1d to do: dft')
 
     args = parser.parse_args()
 
@@ -34,8 +36,37 @@ def main():
     # Find the Kohn-Sham potential that generates a given reference density
     if args.task == 'get-groundstate':
 
-        # Construct parameters class
+        # Construct parameters object
         params = parameters()
+
+        kpoints = params.get_kpoints()
+        planewave_frequencies = params.get_planewave_frequencies()
+
+
+
+        wavefunction = []
+        for k in kpoints:
+
+            H = hamiltonian(params, kpoint=k)
+            print(H.kpoint)
+
+
+            #ham = hamiltonian(k)
+
+            # Construct Hamiltonian
+            # wavefunction.append(hamiltonian.get_eigenfunctions())
+            # wavefunction[i].set_kpoint(k)
+            # wavefunction[i].set_
+            #
+            # Diag Hamiltonian
+
+            # Store orbitals
+
+        # Construct density (over all kpoints)
+
+        # do density mixing
+
+
 
         # Find g.s. wavefunctions, energy, and density
         #wavefunctions, total_energy, density = minimise_energy_hf(params)

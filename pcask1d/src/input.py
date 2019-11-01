@@ -6,6 +6,8 @@ Input to the calculation in the form of a parameters class
 
 
 class parameters(object):
+
+    # Constructor function
     def __init__(self,*args,**kwargs):
 
         # Level of approximation used
@@ -13,17 +15,11 @@ class parameters(object):
 
         # Size of real space cell
         self.cell = 20
-        self.num_planewaves = 101
-        self.kpoint_spacing = 0.05
+        self.num_planewaves = 100 # Warning, must be even.
+        self.kpoint_spacing = 0.2
 
         # Real space grid
         self.grid = np.linspace(-0.5*self.cell, 0.5*self.cell, self.num_planewaves)
-
-        def get_planewave_frequencies():
-            print('hello')
-
-        def get_kpoints():
-            print('hello')
 
         # List of species + position
         self.species = ['Li']
@@ -51,4 +47,25 @@ class parameters(object):
             self.num_particles += self.element_charges[self.species[i]]
 
 
+    def get_kpoints(self):
+        # First BZ in 1D is: k \in [-pi/a, pi/a]. Generate k-points in this range, evenly spaced.
+
+        kpoints = np.linspace(-np.pi / self.cell, np.pi / self.cell, 1 / self.kpoint_spacing)
+
+        return kpoints
+
+    def get_planewave_frequencies(self):
+        # Generate the plane-wave frequencies whose real space periodicity fits inside our unit cell
+        # G = 2pi n / R
+
+        pw_frequencies = [(2*np.pi*n / self.cell) for n in
+                          range(-int(self.num_planewaves/2), int(self.num_planewaves/2))]
+
+        # Sort from lowest to highest frequency
+        pw_frequencies = sorted(pw_frequencies, key=abs)
+
+        # Remove zero freq PW for now...
+        pw_frequencies.pop(0)
+
+        return pw_frequencies
 

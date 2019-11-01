@@ -7,5 +7,7 @@ pcask1d.egg-info/dependency_links.txt
 pcask1d.egg-info/entry_points.txt
 pcask1d.egg-info/top_level.txt
 pcask1d/src/__init__.py
+pcask1d/src/hamiltonian.py
 pcask1d/src/input.py
 pcask1d/src/main.py
+pcask1d/src/wavefunction.py
