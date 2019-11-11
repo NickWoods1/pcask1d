@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e43bcde2-6e3b-4dfd-b6f6-9a1b8284a0ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pcask1d/src/density.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/pcask1d/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/pcask1d/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/pcask1d-0.1-py3.7.egg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/pcask1d-0.1-py3.7.egg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/hamiltonian.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/hamiltonian.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/params.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/params.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/wavefunction.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/wavefunction.py" afterDir="false" />
-    </list>
+    <list default="true" id="e43bcde2-6e3b-4dfd-b6f6-9a1b8284a0ef" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +55,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="97" />
-          <entry key="py" value="16539" />
+          <entry key="py" value="16540" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="97" />
-          <entry key="Python" value="16539" />
+          <entry key="Python" value="16540" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -95,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/pcask1d/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="551">
-              <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+              <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <marker date="1573502474959" expanded="true" signature="1262:1275" ph="..." />
@@ -321,9 +310,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13709232" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13709232" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -337,7 +325,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002764" side_tool="true" weight="0.33054394" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997236" visible="true" weight="0.24372385" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997236" visible="true" weight="0.24372385" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -454,7 +442,7 @@
     <entry file="file://$PROJECT_DIR$/pcask1d/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
-          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+          <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1573502474959" expanded="true" signature="1262:1275" ph="..." />
