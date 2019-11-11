@@ -1,7 +1,11 @@
+"""
+Single-particle wavefunctions and their various properties
+"""
+
 import numpy as np
 
 
-class wavefunction(object):
+class Wavefunction:
     def __init__(self):
 
         self.pw_coefficients = 0

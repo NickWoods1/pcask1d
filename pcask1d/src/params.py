@@ -23,7 +23,7 @@ class Parameters:
 
         # Size of real space cell
         self._cell = kwargs.get('cell', 10)
-        self._num_planewaves = kwargs.get('num_planewaves', 100)
+        self._num_planewaves = kwargs.get('num_planewaves', 1000)
         self._k_point_spacing = kwargs.get('kpoint_spacing', 0.2)
 
         # List of species + position
@@ -36,8 +36,9 @@ class Parameters:
 
         # SCF parameters
         self._scf_tol = kwargs.get('scf_tol', 1e-10)
-        self._history_length = kwargs.get('scf_history_length', 10)
-        self._step_length = kwargs.get('scf_step_length', 1)
+        self._scf_history_length = kwargs.get('scf_history_length', 10)
+        self._scf_step_length = kwargs.get('scf_step_length', 1)
+        self._scf_temperature = kwargs.get('scf_temperature', 300)
 
         # Have v_ext specified by atoms or given explicitly
         self._manual_v_ext = kwargs.get('manual_v_ext', None)
@@ -49,6 +50,26 @@ class Parameters:
 
         if self._method not in ['h', 'hf', 'dft']:
             raise RuntimeError('Chosen method of {} is not implemented'.format(self._method))
+
+    def smearing_scheme(self, energy):
+        """ Ansatz for smearing the occupancies to prevent occupancy-induced instability in SCF iterations """
+        return 1 / (np.exp(energy / self._scf_temperature) + 1)
+
+    @property
+    def cell(self):
+        return self._cell
+
+    @property
+    def scf_tol(self):
+        return self._scf_tol
+
+    @property
+    def scf_history_length(self):
+        return self.scf_history_length
+
+    @property
+    def scf_step_length(self):
+        return self.scf_step_length
 
     @property
     def num_electrons(self):
@@ -67,10 +88,11 @@ class Parameters:
     @property
     def planewave_grid(self):
         """ Sorted plane-wave frequences for plane-waves that fit in unit cell: G = 2pi n / R """
-        pw_frequencies = [2*np.pi*n / self._cell
+        pw_frequencies = [np.pi*n / self._cell
                           for n in
                           range(-int(self._num_planewaves / 2), int(self._num_planewaves / 2))]
-        return sorted(pw_frequencies, key=abs)
+
+        return np.asarray(sorted(pw_frequencies, key=abs))
 
     @property
     def v_ext(self):

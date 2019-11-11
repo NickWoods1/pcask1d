@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pcask1d.src.params import Parameters
 from pcask1d.src.hamiltonian import Hamiltonian
+from .fft import Fourier
+import matplotlib.pyplot as plt
 
 """
 Entry point for the requested action
@@ -34,10 +36,11 @@ def main():
     print(' ')
 
     # Find the Kohn-Sham potential that generates a given reference density
-    if args.task == 'get-groundstate':
+    if args.task == 'test':
 
         def v_ext(x):
-            return 0.5*0.25**2*x**2
+            return 0.5*(0.25**2)*x**2#np.exp(-(1.5*x)**2)
+            #return abs(x)#np.exp(-(1.5*x)**2)#0.5*(0.25**2)*x**2#np.exp(-(1.5*x)**2)
 
         # Construct parameters object
         params = Parameters(method='h',
@@ -46,15 +49,16 @@ def main():
                             manual_v_ext=v_ext
                             )
 
-        print(params.v_ext)
-
-        #kpoints = params.get_kpoints()
-        #planewave_frequencies = params.get_planewave_frequencies()
+        plt.plot(params.v_ext)
+        output = Fourier.fft(params, params.v_ext)
+        plt.plot(output.real)
+        output2 = Fourier.ifft(params, output)
+        plt.plot(output2.real)
+        plt.show()
 
         # Construct density object with a given initial guess (part of the constructor)
         #density = particle_density(params)
-
-        # Finds output density given an input density
+        # wvfn container: Finds output density given an input density
         # wavefunction = []
         #for k in kpoints:
 
@@ -68,25 +72,5 @@ def main():
             #for wavefunction in wavefunctions:
                 #density += wavefunction.get_density()
 
-        # Integrate over k-space to get the output density
+            #del H
 
-        # Above, we just need F[rhoin] = rhoout, rest can be done in dm.py.
-        # All done in Fourier space, with FFT's that transform between the two spaces (set this up
-        # for periodic functions). Provide v_ext, initial guess density, in real space, represent in
-        # periodic PW basis when needed. Need scheme to integrate over k-space when needed. (some interpolation?)
-
-        # Can distribute over k-points if needed...
-
-        # Iterative diag ---> explicit dense construction and dense diagonalisation
-        # Compute all eigenstates (not just occupied) or just occupied (Lanszcos)
-        # (Don't need to switch between spaces to apply operator)
-        # Construct density in real space most efficient? (no?)
-        # No pseudopotentials, all electron.
-        # Use @property not get/set/del?
-        # underscore to privatise variables that later can use get/set on
-
-        # Guess density
-        # While error > tol
-        # Create H
-        # Get output density
-        # Mix densities

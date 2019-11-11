@@ -2,7 +2,9 @@
 ### pCASK1d
 *******
 
-|MIT License|
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 
 `pcask1d` is a python package designed to compute the ground
 state energy and density of a molecular system in one-dimension using
