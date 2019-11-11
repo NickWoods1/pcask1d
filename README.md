@@ -1,6 +1,8 @@
-*********
-## pCASK1d
-*********
+*******
+### pCASK1d
+*******
+
+|MIT License|
 
 `pcask1d` is a python package designed to compute the ground
 state energy and density of a molecular system in one-dimension using
@@ -8,7 +10,7 @@ various approximations. `pcask1d` is periodic
  and uses a plane-wave basis set. 
 
 *****************
-### Functionality
+#### Functionality
 *****************
 
 Given an external potential, specified manually (e.g. harmonic well), or using the in-built utility

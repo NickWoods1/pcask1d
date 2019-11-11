@@ -1,3 +1,5 @@
+# Distributed under the terms of the MIT License
+
 """
 Implements the parameters class, which carries the model (state) for the computation
 """
