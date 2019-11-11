@@ -1,10 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-class hamiltonian(object):
 
-    # Constructor function
-    def __init__(self, params, *args, **kwargs):
+class Hamiltonian:
+
+    # Default constructor
+    def __init__(self, params, **kwargs):
 
         # Default gamma point
         self.kpoint = kwargs.pop('kpoint',0)

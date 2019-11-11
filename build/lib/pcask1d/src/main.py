@@ -1,8 +1,8 @@
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
-from pcask1d.src.input import parameters
-from pcask1d.src.hamiltonian import hamiltonian
+from pcask1d.src.input import Parameters
+from pcask1d.src.hamiltonian import Hamiltonian
 
 """
 Entry point for the requested action
@@ -36,39 +36,57 @@ def main():
     # Find the Kohn-Sham potential that generates a given reference density
     if args.task == 'get-groundstate':
 
+        def v_ext(x):
+            return 0.5*0.25**2*x**2
+
         # Construct parameters object
-        params = parameters()
+        params = Parameters(method='h',
+                            species=['Li'],
+                            positions=[0],
+                            manual_v_ext=v_ext
+                            )
 
-        kpoints = params.get_kpoints()
-        planewave_frequencies = params.get_planewave_frequencies()
+        print(params.v_ext)
 
+        #kpoints = params.get_kpoints()
+        #planewave_frequencies = params.get_planewave_frequencies()
 
+        # Construct density object with a given initial guess (part of the constructor)
+        #density = particle_density(params)
 
-        wavefunction = []
-        for k in kpoints:
+        # Finds output density given an input density
+        # wavefunction = []
+        #for k in kpoints:
 
-            H = hamiltonian(params, kpoint=k)
-            print(H.kpoint)
+            # Create the Hamiltonian at the given k-point
+            #H = hamiltonian(params, kpoint=k, density=density)
 
+            # Returns a container of type wavefunction. Each with occupation, band index, etc.
+            #wavefunctions = H.get_eigenfunctions(density)
 
-            #ham = hamiltonian(k)
+            # Get density at k-point
+            #for wavefunction in wavefunctions:
+                #density += wavefunction.get_density()
 
-            # Construct Hamiltonian
-            # wavefunction.append(hamiltonian.get_eigenfunctions())
-            # wavefunction[i].set_kpoint(k)
-            # wavefunction[i].set_
-            #
-            # Diag Hamiltonian
+        # Integrate over k-space to get the output density
 
-            # Store orbitals
+        # Above, we just need F[rhoin] = rhoout, rest can be done in dm.py.
+        # All done in Fourier space, with FFT's that transform between the two spaces (set this up
+        # for periodic functions). Provide v_ext, initial guess density, in real space, represent in
+        # periodic PW basis when needed. Need scheme to integrate over k-space when needed. (some interpolation?)
 
-        # Construct density (over all kpoints)
+        # Can distribute over k-points if needed...
 
-        # do density mixing
+        # Iterative diag ---> explicit dense construction and dense diagonalisation
+        # Compute all eigenstates (not just occupied) or just occupied (Lanszcos)
+        # (Don't need to switch between spaces to apply operator)
+        # Construct density in real space most efficient? (no?)
+        # No pseudopotentials, all electron.
+        # Use @property not get/set/del?
+        # underscore to privatise variables that later can use get/set on
 
-
-
-        # Find g.s. wavefunctions, energy, and density
-        #wavefunctions, total_energy, density = minimise_energy_hf(params)
-
-        print('hello')
+        # Guess density
+        # While error > tol
+        # Create H
+        # Get output density
+        # Mix densities

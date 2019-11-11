@@ -48,53 +48,38 @@ class Parameters:
         if self._method not in ['h', 'hf', 'dft']:
             raise RuntimeError('Chosen method of {} is not implemented'.format(self._method))
 
-
-    # Number of electrons (counted s.t. charge neutrality is enforced)
     @property
     def num_electrons(self):
+        """ Number of electrons (counted s.t. charge neutrality is enforced) """
         num_electrons = 0
         for i in range(len(self._species)):
             num_electrons += self._element_charges[self._species[i]]
         return num_electrons
 
-    # Real-space grid
     @property
     def realspace_grid(self):
+        """ Return real space grid for unit cell in Angstroms """
         return np.linspace(-self._cell, self._cell, self._num_planewaves)
 
     # Plane-wave frequencies
     @property
     def planewave_grid(self):
-        print('Plane-wave frequency list...')
-        return None
+        """ Sorted plane-wave frequences for plane-waves that fit in unit cell: G = 2pi n / R """
+        pw_frequencies = [2*np.pi*n / self._cell
+                          for n in
+                          range(-int(self._num_planewaves / 2), int(self._num_planewaves / 2))]
+        return sorted(pw_frequencies, key=abs)
 
-    # External potential
     @property
     def v_ext(self):
+        """ External potential: specified function over domain (cell) or atomic potential (Coulomb)"""
         if self._manual_v_ext is not None:
             return self._manual_v_ext(x=self.realspace_grid)
         else:
-            print('Write function to generate atomic Coulomb potential in 1D')
+            return 'Function that computes atomic potential'
 
-    # MP kpoint grid within first BZ: k \in [-pi/a, pi/a]
     @property
     def k_points(self):
+        r""" MP k-point grid within the first BZ: k \in [-pi/a, pi/a] """
         return np.linspace(-np.pi / self._cell, np.pi / self._cell, 1 / self._k_point_spacing)
 
-
-    """
-    def get_planewave_frequencies(self):
-        # Generate the plane-wave frequencies whose real space periodicity fits inside our unit cell
-        # G = 2pi n / R
-
-        pw_frequencies = [(2*np.pi*n / self.cell) for n in
-                          range(-int(self.num_planewaves/2), int(self.num_planewaves/2))]
-
-        # Sort from lowest to highest frequency
-        pw_frequencies = sorted(pw_frequencies, key=abs)
-
-        # Remove zero freq PW for now...
-        pw_frequencies.pop(0)
-
-        return pw_frequencies
-    """

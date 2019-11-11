@@ -1,10 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-class hamiltonian(object):
 
-    # Constructor function
-    def __init__(self, params, *args, **kwargs):
+class Hamiltonian:
+
+    # Default constructor
+    def __init__(self, params, **kwargs):
 
         # Default gamma point
         self.kpoint = kwargs.pop('kpoint',0)
@@ -16,6 +17,7 @@ class hamiltonian(object):
         for i in range(params.num_planewaves-1):
             self.representation[i,i] += 1 / abs(planewave_frequencies[i] + self.kpoint)**2
 
+        # Going to need to be 2D FFT.... (FFT along all axes)
         # External potential
         x = np.linspace(-10,10,100)
         """
@@ -43,5 +45,8 @@ class hamiltonian(object):
     def set_kpoint(self, kpoint):
         self.kpoint = kpoint
 
-    def get_eigenfunctions(self):
+    def get_eigenfunctions(self, density):
+        print('hello')
+
+    def get_selfconsistent_eigenfunctions(self, density):
         print('hello')

@@ -1,8 +1,8 @@
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
-from pcask1d.src.input import parameters
-from pcask1d.src.hamiltonian import hamiltonian
+from pcask1d.src.params import Parameters
+from pcask1d.src.hamiltonian import Hamiltonian
 
 """
 Entry point for the requested action
@@ -36,18 +36,27 @@ def main():
     # Find the Kohn-Sham potential that generates a given reference density
     if args.task == 'get-groundstate':
 
-        # Construct parameters object
-        params = parameters()
+        def v_ext(x):
+            return 0.5*0.25**2*x**2
 
-        kpoints = params.get_kpoints()
-        planewave_frequencies = params.get_planewave_frequencies()
+        # Construct parameters object
+        params = Parameters(method='h',
+                            species=['Li'],
+                            positions=[0],
+                            manual_v_ext=v_ext
+                            )
+
+        print(params.v_ext)
+
+        #kpoints = params.get_kpoints()
+        #planewave_frequencies = params.get_planewave_frequencies()
 
         # Construct density object with a given initial guess (part of the constructor)
         #density = particle_density(params)
 
         # Finds output density given an input density
         # wavefunction = []
-        for k in kpoints:
+        #for k in kpoints:
 
             # Create the Hamiltonian at the given k-point
             #H = hamiltonian(params, kpoint=k, density=density)
