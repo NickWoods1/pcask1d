@@ -49,14 +49,10 @@ def main():
                             manual_v_ext=v_ext
                             )
 
-        plt.plot(params.v_ext)
-        output = Fourier.fft(params, params.v_ext)
-        plt.plot(output.real)
-        output2 = Fourier.ifft(params, output)
-        plt.plot(output2.real)
-        plt.show()
 
-        # Construct density object with a given initial guess (part of the constructor)
+
+
+      # Construct density object with a given initial guess (part of the constructor)
         #density = particle_density(params)
         # wvfn container: Finds output density given an input density
         # wavefunction = []

@@ -23,7 +23,7 @@ class Parameters:
 
         # Size of real space cell
         self._cell = kwargs.get('cell', 10)
-        self._num_planewaves = kwargs.get('num_planewaves', 1000)
+        self._num_planewaves = kwargs.get('num_planewaves', 200)
         self._k_point_spacing = kwargs.get('kpoint_spacing', 0.2)
 
         # List of species + position
@@ -84,23 +84,34 @@ class Parameters:
         """ Return real space grid for unit cell in Angstroms """
         return np.linspace(-self._cell, self._cell, self._num_planewaves)
 
-    # Plane-wave frequencies
     @property
     def planewave_grid(self):
-        """ Sorted plane-wave frequences for plane-waves that fit in unit cell: G = 2pi n / R """
+        """ Plane-wave frequences for plane-waves that fit in unit cell: G = 2pi n / R """
+        N = int(self._num_planewaves / 2)
         pw_frequencies = [np.pi*n / self._cell
                           for n in
-                          range(-int(self._num_planewaves / 2), int(self._num_planewaves / 2))]
-
-        return np.asarray(sorted(pw_frequencies, key=abs))
+                          range(-N, N)]
+        # Ordering defined by numpy's fft
+        pw_frequencies[0:N], pw_frequencies[N:2*N] = pw_frequencies[N:2*N], pw_frequencies[0:N]
+        return np.asarray(pw_frequencies)
 
     @property
     def v_ext(self):
-        """ External potential: specified function over domain (cell) or atomic potential (Coulomb)"""
+        """ External potential: either an atomic potential (Coulomb) or a given functional form """
         if self._manual_v_ext is not None:
-            return self._manual_v_ext(x=self.realspace_grid)
+            return np.fft.fft(self._manual_v_ext(x=self.realspace_grid))
         else:
-            return 'Function that computes atomic potential'
+            v_ext = np.zeros(self._num_planewaves)
+            num_atoms = len(self._species)
+            for i in range(num_atoms):
+                charge = self._element_charges[self._species[i]]
+                v_ext += self.coulomb(self, charge, self._positions[i])
+            return np.fft.fft(v_ext)
+
+    def coulomb(self, charge, position):
+        """ Returns the external potential of an ion with a given charge and position """
+        assert min(abs(self.realspace_grid - position)) > 0.0001, 'Atom is on a grid-point, please shift'
+        return -charge / abs(self.realspace_grid - position)
 
     @property
     def k_points(self):

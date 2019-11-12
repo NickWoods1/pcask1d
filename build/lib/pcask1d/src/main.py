@@ -49,14 +49,41 @@ def main():
                             manual_v_ext=v_ext
                             )
 
-        plt.plot(params.v_ext)
-        output = Fourier.fft(params, params.v_ext)
-        plt.plot(output.real)
-        output2 = Fourier.ifft(params, output)
-        plt.plot(output2.real)
+
+        density = np.exp(-(0.5*params.realspace_grid)**2)
+        N = len(params.planewave_grid)
+        hartree = np.zeros(N)
+        for i in range(N):
+            for j in range(N):
+                hartree[i] += density[j] / (abs(params.realspace_grid[i] - params.realspace_grid[j]) + 10)
+
+
+
+        densityFT = Fourier.fft(density)
+
+
+
+        H = Hamiltonian(densityFT)
+
+        vh = H.v_h(params)
+
+        vh_f = Fourier.fft(hartree)
+
+        plt.plot(vh, label="manual")
+        plt.plot(vh_f, label="fft")
+        plt.legend()
         plt.show()
 
-        # Construct density object with a given initial guess (part of the constructor)
+
+
+        vh_real = Fourier.ifft(vh)
+
+        plt.plot(hartree)
+        plt.plot(vh_real)
+        plt.show()
+
+
+       # Construct density object with a given initial guess (part of the constructor)
         #density = particle_density(params)
         # wvfn container: Finds output density given an input density
         # wavefunction = []

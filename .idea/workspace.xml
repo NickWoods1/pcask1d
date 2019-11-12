@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e43bcde2-6e3b-4dfd-b6f6-9a1b8284a0ef" name="Default Changelist" comment="" />
+    <list default="true" id="e43bcde2-6e3b-4dfd-b6f6-9a1b8284a0ef" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pcask1d/src/hamiltonian.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/pcask1d/src/hamiltonian.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pcask1d/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/pcask1d/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/pcask1d-0.1-py3.7.egg" beforeDir="false" afterPath="$PROJECT_DIR$/dist/pcask1d-0.1-py3.7.egg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcask1d/src/fft.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/fft.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcask1d/src/hamiltonian.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/hamiltonian.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcask1d/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pcask1d/src/params.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/params.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,38 +50,39 @@
     <session id="-1158873083">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="4" />
-          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="97" />
-          <entry key="py" value="16540" />
+          <entry key="md" value="104" />
+          <entry key="py" value="19471" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="97" />
-          <entry key="Python" value="16540" />
+          <entry key="Markdown" value="104" />
+          <entry key="Python" value="19471" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="md" value="1" />
+          <entry key="md" value="2" />
           <entry key="py" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Markdown" value="1" />
+          <entry key="Markdown" value="2" />
           <entry key="Python" value="9" />
         </counts>
       </usages-collector>
@@ -80,15 +90,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pcask1d/src/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+            <state relative-caret-position="311">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1573502474959" expanded="true" signature="1262:1275" ph="..." />
-                <marker date="1573502474959" expanded="true" signature="1262:1358" ph="..." />
+                <marker date="1573571895737" expanded="true" signature="1262:1275" ph="..." />
               </folding>
             </state>
           </provider>
@@ -101,9 +110,6 @@
               <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
               <folding>
                 <marker date="1573502433287" expanded="true" signature="273:363" ph="..." />
-                <marker date="1573502433287" expanded="true" signature="415:569" ph="..." />
-                <marker date="1573502433287" expanded="true" signature="625:634" ph="..." />
-                <marker date="1573502433287" expanded="true" signature="703:704" ph="..." />
               </folding>
             </state>
           </provider>
@@ -124,30 +130,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pcask1d/src/params.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-              <folding>
-                <marker date="1573500682709" expanded="true" signature="2180:2250" ph="..." />
-                <marker date="1573500682709" expanded="true" signature="2279:2311" ph="..." />
-                <marker date="1573500682709" expanded="true" signature="2506:2548" ph="..." />
-              </folding>
+            <state relative-caret-position="536">
+              <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pcask1d/src/hamiltonian.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+            <state relative-caret-position="551">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <marker date="1573498806394" expanded="true" signature="90:122" ph="..." />
-                <marker date="1573498806394" expanded="true" signature="706:711" ph="..." />
-                <marker date="1573498806394" expanded="true" signature="862:871" ph="..." />
-                <marker date="1573498806394" expanded="true" signature="1193:1331" ph="..." />
-                <marker date="1573498806394" expanded="true" signature="1362:1429" ph="..." />
-                <marker date="1573498806394" expanded="true" signature="1677:1686" ph="..." />
+                <element signature="e#187#205#0" expanded="true" />
+                <marker date="1573575491568" expanded="true" signature="238:244" ph="..." />
+                <marker date="1573575491568" expanded="true" signature="895:900" ph="..." />
+                <marker date="1573575491568" expanded="true" signature="1051:1060" ph="..." />
+                <marker date="1573575491568" expanded="true" signature="1674:2095" ph="..." />
               </folding>
             </state>
           </provider>
@@ -156,16 +155,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pcask1d/src/fft.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="2" selection-start-column="2" selection-end-column="2" />
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
-                <element signature="e#120#152#0" expanded="true" />
-                <marker date="1573500745445" expanded="true" signature="187:1306" ph="..." />
-                <marker date="1573500745445" expanded="true" signature="297:306" ph="..." />
-                <marker date="1573500745445" expanded="true" signature="297:409" ph="..." />
-                <marker date="1573500745445" expanded="true" signature="297:427" ph="..." />
-                <marker date="1573500745445" expanded="true" signature="458:872" ph="..." />
-                <marker date="1573500745445" expanded="true" signature="458:890" ph="..." />
+                <marker date="1573565511554" expanded="true" signature="265:274" ph="..." />
+                <marker date="1573565511554" expanded="true" signature="265:377" ph="..." />
+                <marker date="1573565511554" expanded="true" signature="265:395" ph="..." />
+                <marker date="1573565511554" expanded="true" signature="418:536" ph="..." />
+                <marker date="1573565511554" expanded="true" signature="418:554" ph="..." />
               </folding>
             </state>
           </provider>
@@ -175,7 +172,7 @@
         <entry file="file://$PROJECT_DIR$/pcask1d/src/wavefunction.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <marker date="1573502363990" expanded="true" signature="166:167" ph="..." />
               </folding>
@@ -203,14 +200,14 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/pcask1d/src/utils.py" />
         <option value="$PROJECT_DIR$/pcask1d/src/input.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/pcask1d/src/hamiltonian.py" />
-        <option value="$PROJECT_DIR$/pcask1d/src/params.py" />
-        <option value="$PROJECT_DIR$/pcask1d/src/fft.py" />
         <option value="$PROJECT_DIR$/pcask1d/src/density.py" />
         <option value="$PROJECT_DIR$/pcask1d/src/wavefunction.py" />
         <option value="$PROJECT_DIR$/pcask1d/src/scf.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/pcask1d/src/fft.py" />
+        <option value="$PROJECT_DIR$/pcask1d/src/params.py" />
         <option value="$PROJECT_DIR$/pcask1d/src/main.py" />
+        <option value="$PROJECT_DIR$/pcask1d/src/hamiltonian.py" />
       </list>
     </option>
   </component>
@@ -246,6 +243,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,7 +266,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -309,9 +306,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="1984" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13709232" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14040907" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -352,41 +350,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pcask1d/src/utils.py" />
     <entry file="file://$PROJECT_DIR$/pcask1d/src/input.py" />
+    <entry file="file://$PROJECT_DIR$/pcask1d/src/wavefunction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <marker date="1573502363990" expanded="true" signature="166:167" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <first_editor relative-caret-position="75">
+            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pcask1d/src/params.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <marker date="1573500682709" expanded="true" signature="2180:2250" ph="..." />
-            <marker date="1573500682709" expanded="true" signature="2279:2311" ph="..." />
-            <marker date="1573500682709" expanded="true" signature="2506:2548" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pcask1d/src/hamiltonian.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1573498806394" expanded="true" signature="90:122" ph="..." />
-            <marker date="1573498806394" expanded="true" signature="706:711" ph="..." />
-            <marker date="1573498806394" expanded="true" signature="862:871" ph="..." />
-            <marker date="1573498806394" expanded="true" signature="1193:1331" ph="..." />
-            <marker date="1573498806394" expanded="true" signature="1362:1429" ph="..." />
-            <marker date="1573498806394" expanded="true" signature="1677:1686" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -400,53 +380,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pcask1d/src/fft.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-          <folding>
-            <element signature="e#120#152#0" expanded="true" />
-            <marker date="1573500745445" expanded="true" signature="187:1306" ph="..." />
-            <marker date="1573500745445" expanded="true" signature="297:306" ph="..." />
-            <marker date="1573500745445" expanded="true" signature="297:409" ph="..." />
-            <marker date="1573500745445" expanded="true" signature="297:427" ph="..." />
-            <marker date="1573500745445" expanded="true" signature="458:872" ph="..." />
-            <marker date="1573500745445" expanded="true" signature="458:890" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pcask1d/src/wavefunction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <marker date="1573502363990" expanded="true" signature="166:167" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pcask1d/src/scf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding>
             <marker date="1573502433287" expanded="true" signature="273:363" ph="..." />
-            <marker date="1573502433287" expanded="true" signature="415:569" ph="..." />
-            <marker date="1573502433287" expanded="true" signature="625:634" ph="..." />
-            <marker date="1573502433287" expanded="true" signature="703:704" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pcask1d/src/fft.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <marker date="1573565511554" expanded="true" signature="265:274" ph="..." />
+            <marker date="1573565511554" expanded="true" signature="265:377" ph="..." />
+            <marker date="1573565511554" expanded="true" signature="265:395" ph="..." />
+            <marker date="1573565511554" expanded="true" signature="418:536" ph="..." />
+            <marker date="1573565511554" expanded="true" signature="418:554" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pcask1d/src/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+        <state relative-caret-position="311">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1573502474959" expanded="true" signature="1262:1275" ph="..." />
-            <marker date="1573502474959" expanded="true" signature="1262:1358" ph="..." />
+            <marker date="1573571895737" expanded="true" signature="1262:1275" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pcask1d/src/params.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="99" column="36" selection-start-line="99" selection-start-column="36" selection-end-line="99" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pcask1d/src/hamiltonian.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="e#187#205#0" expanded="true" />
+            <marker date="1573575491568" expanded="true" signature="238:244" ph="..." />
+            <marker date="1573575491568" expanded="true" signature="895:900" ph="..." />
+            <marker date="1573575491568" expanded="true" signature="1051:1060" ph="..." />
+            <marker date="1573575491568" expanded="true" signature="1674:2095" ph="..." />
           </folding>
         </state>
       </provider>
