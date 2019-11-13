@@ -1,10 +1,10 @@
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
-from pcask1d.src.params import Parameters
-from pcask1d.src.hamiltonian import Hamiltonian
+from .params import Parameters
+from .hamiltonian import Hamiltonian
+from .wavefunction import Wavefunction
 from .fft import Fourier
-import matplotlib.pyplot as plt
 
 """
 Entry point for the requested action
@@ -46,44 +46,34 @@ def main():
         params = Parameters(method='h',
                             species=['Li'],
                             positions=[0],
-                            manual_v_ext=v_ext
                             )
 
+        density = v_ext(params.realspace_grid)
+        hamiltonian = Hamiltonian(density)
+        wavefunctions = [Wavefunction(params) for i in range(params.num_electrons)]
 
-        density = np.exp(-(0.5*params.realspace_grid)**2)
-        N = len(params.planewave_grid)
-        hartree = np.zeros(N)
-        for i in range(N):
-            for j in range(N):
-                hartree[i] += density[j] / (abs(params.realspace_grid[i] - params.realspace_grid[j]) + 10)
+        eigenenergies, eigenfunctions = hamiltonian.eigendecomposition(params)
 
+        for i, wavefunction in enumerate(wavefunctions):
+            wavefunction.pw_coefficients = eigenfunctions[:,i]
+            wavefunction.band_index = i
+            wavefunction.energy = eigenenergies[i]
 
+        for wavefunction in wavefunctions:
+            print(wavefunction)
 
-        densityFT = Fourier.fft(density)
+        #for wvfn in wavefunctions:
+        #    wvfn.pw_coefficients = eigenfunction[:,i]
 
+        #energies, wavefunctions = H.eigendecomposition(params)#, num_states=1)
 
-
-        H = Hamiltonian(densityFT)
-
-        vh = H.v_h(params)
-
-        vh_f = Fourier.fft(hartree)
-
-        plt.plot(vh, label="manual")
-        plt.plot(vh_f, label="fft")
-        plt.legend()
-        plt.show()
+        #plt.plot(wavefunctions[:,0])
+        #plt.show()
 
 
 
-        vh_real = Fourier.ifft(vh)
 
-        plt.plot(hartree)
-        plt.plot(vh_real)
-        plt.show()
-
-
-       # Construct density object with a given initial guess (part of the constructor)
+      # Construct density object with a given initial guess (part of the constructor)
         #density = particle_density(params)
         # wvfn container: Finds output density given an input density
         # wavefunction = []

@@ -22,8 +22,8 @@ class Parameters:
         self._method = kwargs.get('method', 'dft')
 
         # Size of real space cell
-        self._cell = kwargs.get('cell', 10)
-        self._num_planewaves = kwargs.get('num_planewaves', 200)
+        self._cell = kwargs.get('cell', 20)
+        self._num_planewaves = kwargs.get('num_planewaves', 1000)
         self._k_point_spacing = kwargs.get('kpoint_spacing', 0.2)
 
         # List of species + position
@@ -105,7 +105,7 @@ class Parameters:
             num_atoms = len(self._species)
             for i in range(num_atoms):
                 charge = self._element_charges[self._species[i]]
-                v_ext += self.coulomb(self, charge, self._positions[i])
+                v_ext += self.coulomb(charge, self._positions[i])
             return np.fft.fft(v_ext)
 
     def coulomb(self, charge, position):

@@ -1,10 +1,10 @@
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
-from pcask1d.src.params import Parameters
-from pcask1d.src.hamiltonian import Hamiltonian
+from .params import Parameters
+from .hamiltonian import Hamiltonian
+from .wavefunction import Wavefunction
 from .fft import Fourier
-import matplotlib.pyplot as plt
 
 """
 Entry point for the requested action
@@ -46,11 +46,28 @@ def main():
         params = Parameters(method='h',
                             species=['Li'],
                             positions=[0],
-                            manual_v_ext=v_ext
                             )
 
+        density = v_ext(params.realspace_grid)
+        hamiltonian = Hamiltonian(density)
+        wavefunctions = [Wavefunction(params) for i in range(params.num_electrons)]
+
+        eigenenergies, eigenfunctions = hamiltonian.eigendecomposition(params)
+
+        for i, wavefunction in enumerate(wavefunctions):
+            wavefunction.pw_coefficients = eigenfunctions[:,i]
+            wavefunction.energy = eigenenergies[i]
+            wavefunction.band_index = i
+            wavefunction.k_point = 0
 
 
+        #for wvfn in wavefunctions:
+        #    wvfn.pw_coefficients = eigenfunction[:,i]
+
+        #energies, wavefunctions = H.eigendecomposition(params)#, num_states=1)
+
+        #plt.plot(wavefunctions[:,0])
+        #plt.show()
 
       # Construct density object with a given initial guess (part of the constructor)
         #density = particle_density(params)
