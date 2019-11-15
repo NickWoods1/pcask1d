@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e43bcde2-6e3b-4dfd-b6f6-9a1b8284a0ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/density.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/density.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/fft.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/fft.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/hamiltonian.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/hamiltonian.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/params.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/params.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/scf.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/scf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcask1d/src/wavefunction.py" beforeDir="false" afterPath="$PROJECT_DIR$/pcask1d/src/wavefunction.py" afterDir="false" />
-    </list>
+    <list default="true" id="e43bcde2-6e3b-4dfd-b6f6-9a1b8284a0ef" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
