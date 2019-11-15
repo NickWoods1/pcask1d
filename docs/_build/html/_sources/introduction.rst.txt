@@ -1,0 +1,10 @@
+Introduction
+============
+
+``pcask1d`` is a Python package designed to perform toy quantum chemistry calculations in one-dimension. The
+code is written in an object oriented style. At the centre of the package are the constructions ``Parameters``, ``Wavefunction``, 
+``Density``, and ``Hamiltonian``. The iterable ``SCF`` class uses these constructions to perform a self-consistent calculation.
+
+The physics contained in the package can be found at X. 
+
+An introductory user guide (with examples) can be found at Y.
