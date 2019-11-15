@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e43bcde2-6e3b-4dfd-b6f6-9a1b8284a0ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.rst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,16 +57,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="284" />
+          <entry key="md" value="286" />
           <entry key="py" value="22848" />
-          <entry key="rst" value="26" />
+          <entry key="rst" value="109" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="284" />
+          <entry key="Markdown" value="286" />
           <entry key="Python" value="22848" />
-          <entry key="ReST" value="26" />
+          <entry key="ReST" value="109" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -75,7 +74,7 @@
           <entry key="md" value="3" />
           <entry key="py" value="12" />
           <entry key="pyx" value="1" />
-          <entry key="rst" value="1" />
+          <entry key="rst" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -83,7 +82,7 @@
           <entry key="Cython" value="1" />
           <entry key="Markdown" value="3" />
           <entry key="Python" value="12" />
-          <entry key="ReST" value="1" />
+          <entry key="ReST" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -149,8 +148,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="180">
-                <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <first_editor relative-caret-position="90">
+                <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               </first_editor>
               <second_editor />
             </state>
@@ -158,6 +157,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/index.rst">
+          <provider selected="true" editor-type-id="restructured-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pcask1d/src/params.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -396,18 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pcask1d/src/wavefunction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <marker date="1573810750287" expanded="true" signature="202:204" ph="..." />
-            <marker date="1573810750287" expanded="true" signature="202:208" ph="..." />
-            <marker date="1573810750287" expanded="true" signature="365:366" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pcask1d/src/scf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -440,20 +432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pcask1d/src/fft.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <marker date="1573810750271" expanded="true" signature="316:325" ph="..." />
-            <marker date="1573810750271" expanded="true" signature="316:428" ph="..." />
-            <marker date="1573810750271" expanded="true" signature="316:446" ph="..." />
-            <marker date="1573810750271" expanded="true" signature="469:587" ph="..." />
-            <marker date="1573810750271" expanded="true" signature="469:605" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pcask1d/src/hamiltonian.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -469,19 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="180">
-            <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.rst">
-      <provider selected="true" editor-type-id="restructured-text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/pcask1d/src/params.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -491,6 +456,45 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pcask1d/src/fft.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <marker date="1573810750271" expanded="true" signature="316:325" ph="..." />
+            <marker date="1573810750271" expanded="true" signature="316:428" ph="..." />
+            <marker date="1573810750271" expanded="true" signature="316:446" ph="..." />
+            <marker date="1573810750271" expanded="true" signature="469:587" ph="..." />
+            <marker date="1573810750271" expanded="true" signature="469:605" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pcask1d/src/wavefunction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <marker date="1573810750287" expanded="true" signature="202:204" ph="..." />
+            <marker date="1573810750287" expanded="true" signature="202:208" ph="..." />
+            <marker date="1573810750287" expanded="true" signature="365:366" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/index.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
