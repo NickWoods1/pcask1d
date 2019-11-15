@@ -1,3 +1,3 @@
-build
-dist
-pcask1d.egg-info
+build/
+dist/
+*.egg-info/

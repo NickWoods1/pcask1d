@@ -1,11 +1,14 @@
+# Distributed under the terms of the MIT License.:w
+
 """
-Implements class that defines a particle density (probability distribution)
+The file defines a particle density (probability distribution) and its various features/uses.
 """
 
 import numpy as np
 
 
 class Density:
+    """ The class representing a particle density """
 
     def __init__(self):
 

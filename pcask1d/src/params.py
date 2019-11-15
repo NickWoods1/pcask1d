@@ -56,6 +56,10 @@ class Parameters:
         return 1 / (np.exp(energy / self._scf_temperature) + 1)
 
     @property
+    def num_planewaves(self):
+        return self._num_planewaves
+
+    @property
     def cell(self):
         return self._cell
 
@@ -65,11 +69,11 @@ class Parameters:
 
     @property
     def scf_history_length(self):
-        return self.scf_history_length
+        return self._scf_history_length
 
     @property
     def scf_step_length(self):
-        return self.scf_step_length
+        return self._scf_step_length
 
     @property
     def num_electrons(self):
@@ -108,13 +112,13 @@ class Parameters:
                 v_ext += self.coulomb(charge, self._positions[i])
             return np.fft.fft(v_ext)
 
-    def coulomb(self, charge, position):
-        """ Returns the external potential of an ion with a given charge and position """
-        assert min(abs(self.realspace_grid - position)) > 0.0001, 'Atom is on a grid-point, please shift'
-        return -charge / abs(self.realspace_grid - position)
-
     @property
     def k_points(self):
         r""" MP k-point grid within the first BZ: k \in [-pi/a, pi/a] """
         return np.linspace(-np.pi / self._cell, np.pi / self._cell, 1 / self._k_point_spacing)
+
+    def coulomb(self, charge: int, position: float) -> np.ndarray:
+        """ Returns the external potential of an ion with a given charge and position """
+        assert min(abs(self.realspace_grid - position)) > 0.0001, 'Atom is on a grid-point, please shift'
+        return -charge / abs(self.realspace_grid - position)
 

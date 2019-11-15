@@ -1,3 +1,5 @@
+# Distributed under the terms of the MIT License.
+
 """
 Implements discrete Fourier transform over period params.cell \in [-a,a]
 and frequencies defined by G = n*pi/a

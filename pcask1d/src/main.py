@@ -1,3 +1,5 @@
+# Distributed under the terms of the MIT License.
+
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,6 +11,7 @@ from .fft import Fourier
 """
 Entry point for the requested action
 """
+
 
 def main():
 

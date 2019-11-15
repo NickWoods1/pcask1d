@@ -1,3 +1,5 @@
+# Distributed under the terms of the MIT License.
+
 """
 Class designed to keep and update the relevant state (e.g. density history)
 of a calculation en route toward self-consistency
