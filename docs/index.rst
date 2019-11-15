@@ -5,6 +5,8 @@ Documentation for pcask1d
 
 **Quantum Chemistry in one-dimension with a plane-wave basis set**
 
+|convergence|
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -28,3 +30,4 @@ Indices and tables
 .. |docs| image:: https://readthedocs.org/projects/pcask1d/badge/?version=latest
    :target: https://pcask1d.readthedocs.io/en/latest/?badge=latest
 
+.. |convergence| image:: convergence.png
