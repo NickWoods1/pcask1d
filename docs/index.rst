@@ -11,6 +11,7 @@ Documentation for pcask1d
    :maxdepth: 2
    :caption: Contents:
 
+   modules   
    introduction
    license
    help
@@ -31,3 +32,5 @@ Indices and tables
    :target: https://pcask1d.readthedocs.io/en/latest/?badge=latest
 
 .. |convergence| image:: convergence.png
+    :width: 500px
+    :height: 375px
