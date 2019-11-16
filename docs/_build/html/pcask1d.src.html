@@ -34,7 +34,9 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="introduction.html" />
+    <link rel="prev" title="pcask1d package" href="pcask1d.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,8 +81,18 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pcask1d</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pcask1d.html">pcask1d package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="pcask1d.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">pcask1d.src package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pcask1d.html#module-pcask1d">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
@@ -129,6 +141,10 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
+          <li><a href="modules.html">pcask1d</a> &raquo;</li>
+        
+          <li><a href="pcask1d.html">pcask1d package</a> &raquo;</li>
+        
       <li>pcask1d.src package</li>
     
     
@@ -153,29 +169,261 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="pcask1d-src-density-module">
-<h2>pcask1d.src.density module<a class="headerlink" href="#pcask1d-src-density-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pcask1d.src.density">
+<span id="pcask1d-src-density-module"></span><h2>pcask1d.src.density module<a class="headerlink" href="#module-pcask1d.src.density" title="Permalink to this headline">¶</a></h2>
+<p>The file defines a particle density (probability distribution) and its various features/uses.</p>
+<dl class="class">
+<dt id="pcask1d.src.density.Density">
+<em class="property">class </em><code class="sig-prename descclassname">pcask1d.src.density.</code><code class="sig-name descname">Density</code><a class="headerlink" href="#pcask1d.src.density.Density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class representing a particle density</p>
+<dl class="method">
+<dt id="pcask1d.src.density.Density.norm">
+<code class="sig-name descname">norm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.density.Density.norm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="pcask1d-src-fft-module">
-<h2>pcask1d.src.fft module<a class="headerlink" href="#pcask1d-src-fft-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pcask1d.src.fft">
+<span id="pcask1d-src-fft-module"></span><h2>pcask1d.src.fft module<a class="headerlink" href="#module-pcask1d.src.fft" title="Permalink to this headline">¶</a></h2>
+<p>Implements discrete Fourier transform over period params.cell in [-a,a]
+and frequencies defined by G = n*pi/a</p>
+<dl class="class">
+<dt id="pcask1d.src.fft.Fourier">
+<em class="property">class </em><code class="sig-prename descclassname">pcask1d.src.fft.</code><code class="sig-name descname">Fourier</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.fft.Fourier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Interface for switching between spaces for a given params</p>
+<dl class="method">
+<dt id="pcask1d.src.fft.Fourier.fft">
+<em class="property">static </em><code class="sig-name descname">fft</code><span class="sig-paren">(</span><em class="sig-param">function_real</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.fft.Fourier.fft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fourier transform: f(G) = (1/N) sum f(x) e^{2pi i G x}</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.fft.Fourier.ifft">
+<em class="property">static </em><code class="sig-name descname">ifft</code><span class="sig-paren">(</span><em class="sig-param">function_fourier</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.fft.Fourier.ifft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inverse Fourier transform</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="pcask1d-src-hamiltonian-module">
-<h2>pcask1d.src.hamiltonian module<a class="headerlink" href="#pcask1d-src-hamiltonian-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pcask1d.src.hamiltonian">
+<span id="pcask1d-src-hamiltonian-module"></span><h2>pcask1d.src.hamiltonian module<a class="headerlink" href="#module-pcask1d.src.hamiltonian" title="Permalink to this headline">¶</a></h2>
+<p>This file contains the Hamiltonian. Each Hamiltonian is defined for a given k-point and density, with methods to
+extract various quantities such as total energy, wavefunctions, and so on.</p>
+<dl class="class">
+<dt id="pcask1d.src.hamiltonian.Hamiltonian">
+<em class="property">class </em><code class="sig-prename descclassname">pcask1d.src.hamiltonian.</code><code class="sig-name descname">Hamiltonian</code><span class="sig-paren">(</span><em class="sig-param">density</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that implements the Hamiltonian object</p>
+<dl class="method">
+<dt id="pcask1d.src.hamiltonian.Hamiltonian.eigendecomposition">
+<code class="sig-name descname">eigendecomposition</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">num_states='all'</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.eigendecomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the num_states lowest lying eigenvectors and eigenvalues of the Hamiltonian</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system
+num_states (int): number of eigenvectors/eigenvalues to calculate</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.hamiltonian.Hamiltonian.kinetic">
+<code class="sig-name descname">kinetic</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.kinetic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kinetic operator in Fourier space: hat{T} = 
+rac{1}{2} <a href="#id1"><span class="problematic" id="id2">|</span></a>G+k|^2</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.hamiltonian.Hamiltonian.representation">
+<code class="sig-name descname">representation</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.representation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct the representation (coefficients) of the Hamiltonian
+in the plane-wave basis</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.hamiltonian.Hamiltonian.total_energy">
+<code class="sig-name descname">total_energy</code><span class="sig-paren">(</span><em class="sig-param">wavefunctions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.total_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total energy of a Hamiltonian</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.hamiltonian.Hamiltonian.v_ext">
+<code class="sig-name descname">v_ext</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.v_ext" title="Permalink to this definition">¶</a></dt>
+<dd><p>The non-local external potential operator: v_ext(G-G’) from mathcal{F}(v_ext(x))</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.hamiltonian.Hamiltonian.v_h">
+<code class="sig-name descname">v_h</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.v_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Hartree potential: v_h = 
+rac{4 pi 
+ho(G)}{<a href="#id3"><span class="problematic" id="id4">|x-x'|</span></a>})</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.hamiltonian.Hamiltonian.v_xc">
+<code class="sig-name descname">v_xc</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.v_xc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exchange-correlation potential</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="pcask1d-src-main-module">
-<h2>pcask1d.src.main module<a class="headerlink" href="#pcask1d-src-main-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pcask1d.src.main">
+<span id="pcask1d-src-main-module"></span><h2>pcask1d.src.main module<a class="headerlink" href="#module-pcask1d.src.main" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pcask1d.src.main.main">
+<code class="sig-prename descclassname">pcask1d.src.main.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.main.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
-<div class="section" id="pcask1d-src-params-module">
-<h2>pcask1d.src.params module<a class="headerlink" href="#pcask1d-src-params-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pcask1d.src.params">
+<span id="pcask1d-src-params-module"></span><h2>pcask1d.src.params module<a class="headerlink" href="#module-pcask1d.src.params" title="Permalink to this headline">¶</a></h2>
+<p>Implements the parameters class, which carries the model (state) for the computation</p>
+<dl class="class">
+<dt id="pcask1d.src.params.Parameters">
+<em class="property">class </em><code class="sig-prename descclassname">pcask1d.src.params.</code><code class="sig-name descname">Parameters</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.params.Parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The use of this class is to generate a unique input (model) for a dft calculation.
+This includes parameters set by the user (e.g. scf_tol), and any derived quantities
+(e.g. num_planewaves).</p>
+<p>The parameters object is designed to be immutable.</p>
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.cell">
+<em class="property">property </em><code class="sig-name descname">cell</code><a class="headerlink" href="#pcask1d.src.params.Parameters.cell" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.coulomb">
+<code class="sig-name descname">coulomb</code><span class="sig-paren">(</span><em class="sig-param">charge: int</em>, <em class="sig-param">position: float</em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#pcask1d.src.params.Parameters.coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the external potential of an ion with a given charge and position</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.k_points">
+<em class="property">property </em><code class="sig-name descname">k_points</code><a class="headerlink" href="#pcask1d.src.params.Parameters.k_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>MP k-point grid within the first BZ: k in [-pi/a, pi/a]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.num_electrons">
+<em class="property">property </em><code class="sig-name descname">num_electrons</code><a class="headerlink" href="#pcask1d.src.params.Parameters.num_electrons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of electrons (counted s.t. charge neutrality is enforced)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.num_planewaves">
+<em class="property">property </em><code class="sig-name descname">num_planewaves</code><a class="headerlink" href="#pcask1d.src.params.Parameters.num_planewaves" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.planewave_grid">
+<em class="property">property </em><code class="sig-name descname">planewave_grid</code><a class="headerlink" href="#pcask1d.src.params.Parameters.planewave_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plane-wave frequences for plane-waves that fit in unit cell: G = 2pi n / R</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.realspace_grid">
+<em class="property">property </em><code class="sig-name descname">realspace_grid</code><a class="headerlink" href="#pcask1d.src.params.Parameters.realspace_grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return real space grid for unit cell in Angstroms</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.scf_history_length">
+<em class="property">property </em><code class="sig-name descname">scf_history_length</code><a class="headerlink" href="#pcask1d.src.params.Parameters.scf_history_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.scf_step_length">
+<em class="property">property </em><code class="sig-name descname">scf_step_length</code><a class="headerlink" href="#pcask1d.src.params.Parameters.scf_step_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.scf_tol">
+<em class="property">property </em><code class="sig-name descname">scf_tol</code><a class="headerlink" href="#pcask1d.src.params.Parameters.scf_tol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.smearing_scheme">
+<code class="sig-name descname">smearing_scheme</code><span class="sig-paren">(</span><em class="sig-param">energy</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.params.Parameters.smearing_scheme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ansatz for smearing the occupancies to prevent occupancy-induced instability in SCF iterations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.params.Parameters.v_ext">
+<em class="property">property </em><code class="sig-name descname">v_ext</code><a class="headerlink" href="#pcask1d.src.params.Parameters.v_ext" title="Permalink to this definition">¶</a></dt>
+<dd><p>External potential: either an atomic potential (Coulomb) or a given functional form</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="pcask1d-src-scf-module">
-<h2>pcask1d.src.scf module<a class="headerlink" href="#pcask1d-src-scf-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pcask1d.src.scf">
+<span id="pcask1d-src-scf-module"></span><h2>pcask1d.src.scf module<a class="headerlink" href="#module-pcask1d.src.scf" title="Permalink to this headline">¶</a></h2>
+<p>Class designed to keep and update the relevant state (e.g. density history)
+of a calculation en route toward self-consistency</p>
+<dl class="class">
+<dt id="pcask1d.src.scf.SCF">
+<em class="property">class </em><code class="sig-prename descclassname">pcask1d.src.scf.</code><code class="sig-name descname">SCF</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.scf.SCF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>self stores state, namely, history of densities and residuals for quasi-Newton methods</p>
+<dl class="method">
+<dt id="pcask1d.src.scf.SCF.kohn_sham_map">
+<em class="property">static </em><code class="sig-name descname">kohn_sham_map</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">density_in</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.scf.SCF.kohn_sham_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pcask1d.src.scf.SCF.pulay_update">
+<code class="sig-name descname">pulay_update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.scf.SCF.pulay_update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="pcask1d-src-wavefunction-module">
-<h2>pcask1d.src.wavefunction module<a class="headerlink" href="#pcask1d-src-wavefunction-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pcask1d.src.wavefunction">
+<span id="pcask1d-src-wavefunction-module"></span><h2>pcask1d.src.wavefunction module<a class="headerlink" href="#module-pcask1d.src.wavefunction" title="Permalink to this headline">¶</a></h2>
+<p>Single-particle wavefunctions and their various properties</p>
+<dl class="class">
+<dt id="pcask1d.src.wavefunction.Wavefunction">
+<em class="property">class </em><code class="sig-prename descclassname">pcask1d.src.wavefunction.</code><code class="sig-name descname">Wavefunction</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.wavefunction.Wavefunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="pcask1d.src.wavefunction.Wavefunction.pw_coefficients">
+<em class="property">property </em><code class="sig-name descname">pw_coefficients</code><a class="headerlink" href="#pcask1d.src.wavefunction.Wavefunction.pw_coefficients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pcask1d.src">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pcask1d.src" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -184,6 +432,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pcask1d.html" class="btn btn-neutral float-left" title="pcask1d package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

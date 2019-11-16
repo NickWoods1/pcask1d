@@ -63,7 +63,7 @@ class Hamiltonian:
             return eigs(self.representation(params), num_states, which='SM')
 
     def kinetic(self, params):
-        """ Kinetic operator in Fourier space: \hat{T} = \frac{1}{2} |G+k|^2
+        """ Kinetic operator in Fourier space: sdf :math:`\hat{T} = \frac{1}{2} |G+k|^2` dfsf
 
         Parameters:
             params (Parameters): input model for the system
@@ -82,7 +82,7 @@ class Hamiltonian:
         return np.zeros(N)
 
     def v_h(self, params):
-        """ The Hartree potential: v_h = \frac{4 \pi \rho(G)}{|x-x'|})
+        """ The Hartree potential: :math:`v_h = \frac{4 \pi \rho(G)}{|x-x'|})`
 
         Parameters:
             params (Parameters): input model for the system
