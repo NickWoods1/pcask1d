@@ -1,7 +1,8 @@
 # Distributed under the terms of the MIT License.
 
 """
-This file contains the Hamiltonian. Each Hamiltonian is defined for a given k-point and density, with methods to
+This module contains the Hamiltonian. Each Hamiltonian
+is defined for a given k-point and density, with methods to
 extract various quantities such as total energy, wavefunctions, and so on.
 """
 
@@ -15,14 +16,15 @@ class Hamiltonian:
     """ Class that implements the Hamiltonian object """
 
     def __init__(self, density, **kwargs):
-        """
-        Constructs a fixed Hamiltonian operator for a given density and k-point.
+        r"""
+        Defines (abstractly) the Hamiltonian operator for a given density and k-point from
+        which all other quantities are derived.
 
         Parameters:
-            density (Density): density from which Hartree and XC potentials constructed
+            * density (Density): density from which Hartree and XC potentials constructed
 
         Keyword arguments:
-            k-point: point on the reciprocal lattice for sampling the first BZ.
+            * k-point: point on the reciprocal lattice for sampling the first BZ.
         """
 
         # For which k-point is H constructed? Default \gamma point.
@@ -32,11 +34,14 @@ class Hamiltonian:
         self._density = density
 
     def representation(self, params):
-        """ Construct the representation (coefficients) of the Hamiltonian
-        in the plane-wave basis
+        r""" Construct the representation (coefficients) of the Hamiltonian
+        in the plane-wave basis: :math:`\langle G | H[\rho] | G' \rangle`
 
         Parameters:
-            params (Parameters): input model for the system
+            * params (Parameters): input model for the system
+
+        Output:
+            * hamiltonian_representation (ndarray): the Hamiltonian matrix in plane-wave basis
         """
 
         hamiltonian_representation = np.diag(self.kinetic(params)) \
@@ -46,11 +51,15 @@ class Hamiltonian:
         return hamiltonian_representation
 
     def eigendecomposition(self, params, num_states='all'):
-        """ Calculate the num_states lowest lying eigenvectors and eigenvalues of the Hamiltonian
+        r""" Calculate the num_states lowest lying eigenvectors and eigenvalues of the Hamiltonian
 
         Parameters:
-            params (Parameters): input model for the system
-            num_states (int): number of eigenvectors/eigenvalues to calculate
+            * params (Parameters): input model for the system.
+            * num_states (int): number of eigenvectors/eigenvalues to calculate.
+
+        Output:
+            * wavefunctions (Wavefunction): a container of type Wavefunction with
+              the lowest num_states eigenvectors, band indices, etc..
         """
 
         if num_states > params.num_planewaves:
@@ -63,10 +72,10 @@ class Hamiltonian:
             return eigs(self.representation(params), num_states, which='SM')
 
     def kinetic(self, params):
-        """ Kinetic operator in Fourier space: sdf :math:`\hat{T} = \frac{1}{2} |G+k|^2` dfsf
+        r""" Kinetic operator in Fourier space: :math:`\hat{T} = \frac{1}{2} |G+k|^2`
 
         Parameters:
-            params (Parameters): input model for the system
+            * params (Parameters): input model for the system
          """
 
         return 0.5*abs(params.planewave_grid + self._k_point)**2
@@ -75,17 +84,17 @@ class Hamiltonian:
         """ Exchange-correlation potential
 
         Parameters:
-            params (Parameters): input model for the system
+            * params (Parameters): input model for the system
         """
 
         N = len(params.planewave_grid)
         return np.zeros(N)
 
     def v_h(self, params):
-        """ The Hartree potential: :math:`v_h = \frac{4 \pi \rho(G)}{|x-x'|})`
+        r""" The Hartree potential: :math:`v_h = \frac{4 \pi \rho(G)}{|x-x'|}`
 
         Parameters:
-            params (Parameters): input model for the system
+            * params (Parameters): input model for the system
         """
 
         G = params.planewave_grid
@@ -93,10 +102,11 @@ class Hamiltonian:
         return 4.0*np.pi*self._density / G**2
 
     def v_ext(self, params):
-        """ The non-local external potential operator: v_ext(G-G') from \mathcal{F}(v_ext(x))
+        r""" The non-local external potential operator:
+        :math:`v_{ext}(G-G')` from :math:`\mathcal{F}(v_{ext}(x))`
 
         Parameters:
-            params (Parameters): input model for the system
+            * params (Parameters): input model for the system
         """
 
         N = len(params.planewave_grid)
@@ -111,8 +121,5 @@ class Hamiltonian:
         return v_ext_operator
 
     def total_energy(self, wavefunctions=None):
-        """ Total energy of a Hamiltonian """
-        # if wvfns not None
-        # get energy as sum over wvfn eigenenergies
-        # else
-        # get energy by diag then energy.
+        r""" Total energy of a Hamiltonian: :math:`E = \langle \Psi | H | \Psi \rangle`"""
+        pass

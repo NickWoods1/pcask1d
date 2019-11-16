@@ -1,4 +1,0 @@
-mynewrst
-========
-
-This is a test

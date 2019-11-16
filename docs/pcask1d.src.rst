@@ -36,6 +36,14 @@ pcask1d.src.main module
    :undoc-members:
    :show-inheritance:
 
+pcask1d.src.new module
+----------------------
+
+.. automodule:: pcask1d.src.new
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pcask1d.src.params module
 -------------------------
 

@@ -1,7 +1,8 @@
-# Distributed under the terms of the MIT License.:w
+# Distributed under the terms of the MIT License.
 
 """
-The file defines a particle density (probability distribution) and its various features/uses.
+The module defines a particle density (probability distribution)
+and its various features/uses.
 """
 
 import numpy as np
@@ -19,7 +20,10 @@ class Density:
     def __add__(self, density):
         return self.coefficients + density.coefficients
 
-
-    # Check norm of the density
     def norm(self):
-        return None
+        """ The L1 norm of the density
+        ..math::
+
+            \int_{\Sigma} \rho(x) dx = N
+        """
+        pass

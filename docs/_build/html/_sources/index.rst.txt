@@ -11,10 +11,10 @@ Documentation for pcask1d
    :maxdepth: 2
    :caption: Contents:
 
-   modules   
    introduction
    license
    help
+   modules   
 
 
 Indices and tables

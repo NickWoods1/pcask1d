@@ -25,6 +25,7 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -35,7 +36,6 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="introduction.html" />
     <link rel="prev" title="pcask1d package" href="pcask1d.html" /> 
 </head>
 
@@ -82,7 +82,10 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pcask1d</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pcask1d API</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="pcask1d.html">pcask1d package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="pcask1d.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">pcask1d.src package</a></li>
@@ -93,9 +96,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
 </ul>
 
             
@@ -141,7 +141,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="modules.html">pcask1d</a> &raquo;</li>
+          <li><a href="modules.html">pcask1d API</a> &raquo;</li>
         
           <li><a href="pcask1d.html">pcask1d package</a> &raquo;</li>
         
@@ -211,8 +211,11 @@ and frequencies defined by G = n*pi/a</p>
 </div>
 <div class="section" id="module-pcask1d.src.hamiltonian">
 <span id="pcask1d-src-hamiltonian-module"></span><h2>pcask1d.src.hamiltonian module<a class="headerlink" href="#module-pcask1d.src.hamiltonian" title="Permalink to this headline">¶</a></h2>
-<p>This file contains the Hamiltonian. Each Hamiltonian is defined for a given k-point and density, with methods to
-extract various quantities such as total energy, wavefunctions, and so on.</p>
+<dl class="simple">
+<dt>This module contains the Hamiltonian. Each Hamiltonian <span class="math notranslate nohighlight">\(H_k[\rho]\)</span></dt><dd><p>is defined for a given k-point and density, with methods to</p>
+</dd>
+</dl>
+<p>extract various quantities such as total energy, wavefunctions, and so on.</p>
 <dl class="class">
 <dt id="pcask1d.src.hamiltonian.Hamiltonian">
 <em class="property">class </em><code class="sig-prename descclassname">pcask1d.src.hamiltonian.</code><code class="sig-name descname">Hamiltonian</code><span class="sig-paren">(</span><em class="sig-param">density</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian" title="Permalink to this definition">¶</a></dt>
@@ -223,8 +226,15 @@ extract various quantities such as total energy, wavefunctions, and so on.</p>
 <code class="sig-name descname">eigendecomposition</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">num_states='all'</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.eigendecomposition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the num_states lowest lying eigenvectors and eigenvalues of the Hamiltonian</p>
 <dl class="simple">
-<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system
-num_states (int): number of eigenvectors/eigenvalues to calculate</p>
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>params (Parameters): input model for the system.</p></li>
+<li><p>num_states (int): number of eigenvectors/eigenvalues to calculate.</p></li>
+</ul>
+</dd>
+<dt>Output:</dt><dd><ul class="simple">
+<li><p>wavefunctions (Wavefunction): a container of type Wavefunction with
+the lowest num_states eigenvectors, band indices, etc..</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -232,23 +242,28 @@ num_states (int): number of eigenvectors/eigenvalues to calculate</p>
 <dl class="method">
 <dt id="pcask1d.src.hamiltonian.Hamiltonian.kinetic">
 <code class="sig-name descname">kinetic</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.kinetic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Kinetic operator in Fourier space: hat{T} = 
-rac{1}{2} <a href="#id1"><span class="problematic" id="id2">|</span></a>G+k|^2</p>
-<blockquote>
-<div><dl class="simple">
-<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+<dd><p>Kinetic operator in Fourier space: <span class="math notranslate nohighlight">\(\hat{T} = \frac{1}{2} |G+k|^2\)</span></p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>params (Parameters): input model for the system</p></li>
+</ul>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="pcask1d.src.hamiltonian.Hamiltonian.representation">
 <code class="sig-name descname">representation</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.representation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct the representation (coefficients) of the Hamiltonian
-in the plane-wave basis</p>
+in the plane-wave basis: <span class="math notranslate nohighlight">\(\langle G | H[\rho] | G' \rangle\)</span></p>
 <dl class="simple">
-<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>params (Parameters): input model for the system</p></li>
+</ul>
+</dd>
+<dt>Output:</dt><dd><ul class="simple">
+<li><p>hamiltonian_representation (ndarray): the Hamiltonian matrix in plane-wave basis</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -256,15 +271,18 @@ in the plane-wave basis</p>
 <dl class="method">
 <dt id="pcask1d.src.hamiltonian.Hamiltonian.total_energy">
 <code class="sig-name descname">total_energy</code><span class="sig-paren">(</span><em class="sig-param">wavefunctions=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.total_energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Total energy of a Hamiltonian</p>
+<dd><p>Total energy of a Hamiltonian: <span class="math notranslate nohighlight">\(E = \langle \Psi | H | \Psi \rangle\)</span></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pcask1d.src.hamiltonian.Hamiltonian.v_ext">
 <code class="sig-name descname">v_ext</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.v_ext" title="Permalink to this definition">¶</a></dt>
-<dd><p>The non-local external potential operator: v_ext(G-G’) from mathcal{F}(v_ext(x))</p>
+<dd><p>The non-local external potential operator:
+<span class="math notranslate nohighlight">\(v_{ext}(G-G')\)</span> from <span class="math notranslate nohighlight">\(\mathcal{F}(v_{ext}(x))\)</span></p>
 <dl class="simple">
-<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>params (Parameters): input model for the system</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -272,15 +290,13 @@ in the plane-wave basis</p>
 <dl class="method">
 <dt id="pcask1d.src.hamiltonian.Hamiltonian.v_h">
 <code class="sig-name descname">v_h</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.v_h" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Hartree potential: v_h = 
-rac{4 pi 
-ho(G)}{<a href="#id3"><span class="problematic" id="id4">|x-x'|</span></a>})</p>
-<blockquote>
-<div><dl class="simple">
-<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+<dd><p>The Hartree potential: <span class="math notranslate nohighlight">\(v_h = \frac{4 \pi \rho(G)}{|x-x'|}\)</span></p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>params (Parameters): input model for the system</p></li>
+</ul>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -288,7 +304,9 @@ ho(G)}{<a href="#id3"><span class="problematic" id="id4">|x-x'|</span></a>})</p>
 <code class="sig-name descname">v_xc</code><span class="sig-paren">(</span><em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.hamiltonian.Hamiltonian.v_xc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exchange-correlation potential</p>
 <dl class="simple">
-<dt>Parameters:</dt><dd><p>params (Parameters): input model for the system</p>
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p>params (Parameters): input model for the system</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -302,6 +320,16 @@ ho(G)}{<a href="#id3"><span class="problematic" id="id4">|x-x'|</span></a>})</p>
 <dt id="pcask1d.src.main.main">
 <code class="sig-prename descclassname">pcask1d.src.main.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.main.main" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+</div>
+<div class="section" id="module-pcask1d.src.new">
+<span id="pcask1d-src-new-module"></span><h2>pcask1d.src.new module<a class="headerlink" href="#module-pcask1d.src.new" title="Permalink to this headline">¶</a></h2>
+<p>my new module with new comments</p>
+<dl class="function">
+<dt id="pcask1d.src.new.hello">
+<code class="sig-prename descclassname">pcask1d.src.new.</code><code class="sig-name descname">hello</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pcask1d.src.new.hello" title="Permalink to this definition">¶</a></dt>
+<dd><p>hello function</p>
+</dd></dl>
 
 </div>
 <div class="section" id="module-pcask1d.src.params">
@@ -434,8 +462,6 @@ of a calculation en route toward self-consistency</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="pcask1d.html" class="btn btn-neutral float-left" title="pcask1d package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

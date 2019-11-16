@@ -1,5 +1,5 @@
-pcask1d
-=======
+pcask1d API
+===========
 
 .. toctree::
    :maxdepth: 4

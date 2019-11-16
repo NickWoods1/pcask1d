@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 from .params import Parameters
 from .hamiltonian import Hamiltonian
 from .wavefunction import Wavefunction
-from .fft import Fourier
 
 """
 Entry point for the requested action
