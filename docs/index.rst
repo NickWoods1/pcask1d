@@ -31,6 +31,9 @@ Indices and tables
 .. |docs| image:: https://readthedocs.org/projects/pcask1d/badge/?version=latest
    :target: https://pcask1d.readthedocs.io/en/latest/?badge=latest
 
+.. |build| image:: https://travis-ci.org/NickWoods1/pcask1d.svg?branch=master
+   :target: https://travis-ci.org/NickWoods1/pcask1d.svg?branch=master
+
 .. |convergence| image:: convergence.png
     :width: 500px
     :height: 375px
