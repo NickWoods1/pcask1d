@@ -47,8 +47,8 @@ class Hamiltonian:
 
         hamiltonian_representation = np.diag(self.kinetic(params)) \
                                      + self.v_ext(params) \
-                                     + np.diag(self.v_h(params)) \
-                                     + np.diag(self.v_xc(params))
+                                     + self.v_h(params) \
+                                     + self.v_xc(params)
         return hamiltonian_representation
 
     def eigendecomposition(self, params, num_states='all'):
@@ -90,7 +90,8 @@ class Hamiltonian:
             * params (Parameters): input model for the system
          """
 
-        return 0.5*abs(params.planewave_grid + self._k_point)**2
+        N = params.num_planewaves
+        return (0.5/N**2)*abs(params.planewave_grid + self._k_point)**2
 
     def v_xc(self, params):
         """ Exchange-correlation potential
@@ -99,19 +100,16 @@ class Hamiltonian:
             * params (Parameters): input model for the system
         """
 
-        N = len(params.planewave_grid)
-        return np.zeros(N)
+        return np.zeros((params.num_planewaves, params.num_planewaves))
 
     def v_h(self, params):
-        r""" The Hartree potential: :math:`v_h = \frac{4 \pi \rho(G)}{|G|^2}`
+        r""" The Hartree potential in 1D
 
         Parameters:
             * params (Parameters): input model for the system
         """
 
-        G = params.planewave_grid
-        G[0] = 1
-        return 4.0*np.pi*self._density / G**2
+        return self._density * np.fft.fft(1 / (abs(params.realspace_grid) + params.soft))
 
     def v_ext(self, params):
         r""" The non-local external potential operator:
@@ -121,16 +119,7 @@ class Hamiltonian:
             * params (Parameters): input model for the system
         """
 
-        N = len(params.planewave_grid)
-        v_ext_operator = np.zeros((N,N), dtype=complex)
-        v_ext = params.v_ext
-        for i in range(N):
-            j = 0
-            while j <= i:
-                v_ext_operator[i,j] = v_ext[i - j]
-                j += 1
-        v_ext_operator += v_ext_operator.T.conj() #FIX DIAGONAL
-        return v_ext_operator
+        return sp.linalg.toeplitz(params.v_ext)
 
     def total_energy(self, wavefunctions=None):
         r""" Total energy of a Hamiltonian: :math:`E = \langle \Psi | H | \Psi \rangle`"""

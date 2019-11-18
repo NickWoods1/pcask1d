@@ -3,7 +3,7 @@ Documentation for pcask1d
 
 |license| |docs| |build|
 
-**Quantum Chemistry in one-dimension with a plane-wave basis set**
+**Quantum Chemistry in one-dimension with a plane-wave basis set and periodic boundary conditions**
 
 |convergence|
 

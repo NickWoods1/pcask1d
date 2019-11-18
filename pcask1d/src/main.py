@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from .params import Parameters
 from .hamiltonian import Hamiltonian
 from .wavefunction import Wavefunction
+from .density import Density
 
 """
 Entry point for the requested action
@@ -46,16 +47,15 @@ def main():
 
         # Construct parameters object
         params = Parameters(method='h',
-                            species=['Li'],
-                            positions=[0],
+                            species=['Li', 'H'],
+                            positions=[0, 10],
                             )
 
 
-        print(params.planewave_grid)
+        density = Density(params)
+        hamiltonian = Hamiltonian(density)
 
         """
-        density = v_ext(params.realspace_grid)
-        hamiltonian = Hamiltonian(density)
         wavefunctions = [Wavefunction(params) for i in range(params.num_electrons)]
 
         eigenenergies, eigenfunctions = hamiltonian.eigendecomposition(params)

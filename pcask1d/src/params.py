@@ -22,7 +22,7 @@ class Parameters:
 
         # Size of real space cell
         self._cell = kwargs.get('cell', 20)
-        self._num_planewaves = kwargs.get('num_planewaves', 101)
+        self._num_planewaves = kwargs.get('num_planewaves', 1001)
         self._k_point_spacing = kwargs.get('kpoint_spacing', 0.2)
 
         # List of species + position
@@ -39,6 +39,9 @@ class Parameters:
         self._scf_step_length = kwargs.get('scf_step_length', 1)
         self._scf_temperature = kwargs.get('scf_temperature', 300)
 
+        # Pseudopotential
+        self._soft = 0.1
+
         # Have v_ext specified by atoms or given explicitly
         self._manual_v_ext = kwargs.get('manual_v_ext', None)
 
@@ -54,6 +57,23 @@ class Parameters:
         """ Ansatz for smearing the occupancies to prevent
         occupancy-induced instability in SCF iterations """
         return 1 / (np.exp(energy / self._scf_temperature) + 1)
+
+    @property
+    def element_charges(self):
+        return self._element_charges
+
+    @property
+    def positions(self):
+        return self._positions
+
+    @property
+    def species(self):
+        return self._species
+
+    @property
+    def soft(self):
+        r""" Defines the parameter c for the softened Coulomb potential :math:`\frac{1}{|x-x'| + c}` """
+        return self._soft
 
     @property
     def num_planewaves(self):
@@ -95,6 +115,11 @@ class Parameters:
         return np.linspace(-self._cell, self._cell, self._num_planewaves)
 
     @property
+    def big_realspace_grid(self):
+        """ Real space grid with double the sampling """
+        return np.linspace(-self._cell, self._cell, 2*self._num_planewaves)
+
+    @property
     def planewave_grid(self):
         r""" Plane-wave frequences for plane-waves that fit in
          the unit cell: :math:`G = \frac{2 \pi n}{R}` """
@@ -111,6 +136,21 @@ class Parameters:
         return np.asarray(pw_frequencies_positive + pw_frequencies_negative)
 
     @property
+    def big_planewave_grid(self):
+        r""" Plane-wave frequences up to 2*G_max """
+        N = self._num_planewaves
+
+        pw_frequencies_positive = [np.pi*n / self._cell
+                          for n in
+                          range(0, N+1)]
+
+        pw_frequencies_negative = [np.pi*n / self._cell
+                          for n in
+                          range(-N, 0)]
+
+        return np.asarray(pw_frequencies_positive + pw_frequencies_negative)
+
+    @property
     def v_ext(self):
         """ External potential: either an atomic potential (Coulomb) or a given functional form """
         if self._manual_v_ext is not None:
@@ -118,6 +158,7 @@ class Parameters:
         else:
             v_ext = np.zeros(self._num_planewaves)
             num_atoms = len(self._species)
+            # Add a Coulomb potential at each atomic position scaled with Z
             for i in range(num_atoms):
                 charge = self._element_charges[self._species[i]]
                 v_ext += self.coulomb(charge, self._positions[i])
@@ -125,11 +166,11 @@ class Parameters:
 
     @property
     def k_points(self):
-        r""" MP k-point grid within the first BZ: :math:`k \in [\frac{-pi}{a}, \frac{pi}{a}]` """
+        r""" MP k-point grid within the first BZ: :math:`k \in [\frac{-\pi}{a}, \frac{\pi}{a}]` """
         return np.linspace(-np.pi / self._cell, np.pi / self._cell, 1 / self._k_point_spacing)
 
     def coulomb(self, charge: int, position: float) -> np.ndarray:
-        """ The external potential of an ion with a given charge (int) and position (float) """
-        assert min(abs(self.realspace_grid - position)) > 0.0001, 'Atom is on a grid-point, please shift'
-        return -charge / abs(self.realspace_grid - position)
+        """ The external potential of an ion with a given charge (int) and position (float)
+         regularised about the core with a softening parameter """
+        return -charge / (abs(self.realspace_grid - position) + self._soft)
 
