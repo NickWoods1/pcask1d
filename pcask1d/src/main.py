@@ -50,6 +50,10 @@ def main():
                             positions=[0],
                             )
 
+
+        print(params.planewave_grid)
+
+        """
         density = v_ext(params.realspace_grid)
         hamiltonian = Hamiltonian(density)
         wavefunctions = [Wavefunction(params) for i in range(params.num_electrons)]
@@ -61,7 +65,7 @@ def main():
             wavefunction.energy = eigenenergies[i]
             wavefunction.band_index = i
             wavefunction.k_point = 0
-
+        """
 
         #for wvfn in wavefunctions:
         #    wvfn.pw_coefficients = eigenfunction[:,i]

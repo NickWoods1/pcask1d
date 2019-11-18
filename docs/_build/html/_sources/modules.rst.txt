@@ -1,5 +1,5 @@
-pcask1d API
-===========
+Python API
+==========
 
 .. toctree::
    :maxdepth: 4

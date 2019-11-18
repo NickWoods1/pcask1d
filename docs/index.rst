@@ -1,7 +1,7 @@
 Documentation for pcask1d
 ==========================
 
-|docs| |license|
+|license| |docs| |build|
 
 **Quantum Chemistry in one-dimension with a plane-wave basis set**
 

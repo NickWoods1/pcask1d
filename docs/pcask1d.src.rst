@@ -12,14 +12,6 @@ pcask1d.src.density module
    :undoc-members:
    :show-inheritance:
 
-pcask1d.src.fft module
-----------------------
-
-.. automodule:: pcask1d.src.fft
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 pcask1d.src.hamiltonian module
 ------------------------------
 
@@ -32,14 +24,6 @@ pcask1d.src.main module
 -----------------------
 
 .. automodule:: pcask1d.src.main
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pcask1d.src.new module
-----------------------
-
-.. automodule:: pcask1d.src.new
    :members:
    :undoc-members:
    :show-inheritance:

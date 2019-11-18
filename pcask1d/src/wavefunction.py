@@ -1,13 +1,16 @@
 # Distributed under the terms of the MIT License.
 
 """
-Single-particle wavefunctions and their various properties
+Module that defines a single-particle wavefunction and its various properties
 """
 
 import numpy as np
 
 
 class Wavefunction:
+    """ This class represents a single-particle wavefunction :math:`\phi_{ik}^\sigma (G)`
+    with associated single-particle energy :math:`\varepsilon` and occupancy :math:`f_i`.
+    Each wavefunction has a spin :math:`\sigma`, k-point :math:`k`, and band index :math:`i`"""
 
     def __init__(self, params, **kwargs):
 
@@ -26,9 +29,15 @@ class Wavefunction:
 
     @property
     def pw_coefficients(self):
+        """ The plane-wave coefficients of the wavefunction """
         return self._pw_coefficients
 
     @pw_coefficients.setter
-    def pw_coefficients(self, coeffs):
+    def pw_coefficients(self, coeffs: np.ndarray) -> np.ndarray:
         self._pw_coefficients = coeffs
 
+    def get_density(self):
+        #density = np.convolve(self._pw_coefficients.conj(), self._pw_coefficients)
+
+
+        return density

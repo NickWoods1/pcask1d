@@ -8,8 +8,9 @@ extract various quantities such as total energy, wavefunctions, and so on.
 
 import numpy as np
 import scipy as sp
-from scipy.sparse.linalg import eigs
 import warnings
+from scipy.sparse.linalg import eigs
+from .wavefunction import Wavefunction
 
 
 class Hamiltonian:
@@ -67,9 +68,20 @@ class Hamiltonian:
             warnings.warn('Requested num_states greater than Hamiltonian dimension -- calculating all eigenvectors.')
 
         if num_states == 'all':
-            return np.linalg.eigh(self.representation(params))
+            num_states = params.num_planewaves
+            eigenvalues, eigenvectors = np.linalg.eigh(self.representation(params))
         else:
-            return eigs(self.representation(params), num_states, which='SM')
+            eigenvalues, eigenvectors = eigs(self.representation(params), num_states, which='SM')
+
+        wavefunctions = [Wavefunction for i in range(num_states)]
+        for i, wavefunction in enumerate(wavefunctions):
+            wavefunction.band_index = i
+            wavefunction.pw_coefficients = eigenvectors[:,i]
+            wavefunction.energy = eigenvalues[i]
+            # TODO: Add support for partial occupancies here
+            wavefunction.occupancy = 1 if i <= params.num_electrons else 0
+
+        return wavefunctions
 
     def kinetic(self, params):
         r""" Kinetic operator in Fourier space: :math:`\hat{T} = \frac{1}{2} |G+k|^2`
@@ -91,7 +103,7 @@ class Hamiltonian:
         return np.zeros(N)
 
     def v_h(self, params):
-        r""" The Hartree potential: :math:`v_h = \frac{4 \pi \rho(G)}{|x-x'|}`
+        r""" The Hartree potential: :math:`v_h = \frac{4 \pi \rho(G)}{|G|^2}`
 
         Parameters:
             * params (Parameters): input model for the system

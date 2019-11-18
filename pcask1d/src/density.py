@@ -21,8 +21,9 @@ class Density:
         return self.coefficients + density.coefficients
 
     def norm(self):
-        """ The L1 norm of the density
-        ..math::
+        r""" The L1 norm of the density:
+
+        .. math::
 
             \int_{\Sigma} \rho(x) dx = N
         """
