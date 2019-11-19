@@ -8,16 +8,18 @@
 
 
 `pcask1d` is a python package designed to compute the ground
-state energy and density of a molecular system in one-dimension using
-various approximations. `pcask1d` is periodic
- and uses a plane-wave basis set. 
+state energy and density of periodic system (external potential) in one-dimension using
+various approximations. `pcask1d` uses a plane-wave basis set. 
 
-Documentation is hosted on <http://pcask1d.readthedocs.io>. This documentation includes
-the relevant theory and various example calculations. 
+Documentation is hosted on <http://pcask1d.readthedocs.io>. This documentation 
+also includes relevant theory and various example calculations. 
 
-*****************
-#### Functionality
-*****************
+************
+#### Install
+************
 
-Density functional theory, Hartree, and Hartree-Fock calculations. 
-Examples of each can be found in the documentation and in the `examples` directory.
+
+```
+pip install requirements.txt 
+python setup.py install
+```
